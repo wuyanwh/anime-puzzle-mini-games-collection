@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>&#32456;&#26411;&#22320; | Mini Games Collection</title>
+  <script>(function(){try{var s=JSON.parse(localStorage.getItem("mini-games-settings-v1")||"{}");var theme=s.theme||localStorage.getItem("mini-games-theme")||"dark";document.documentElement.dataset.theme=theme;document.documentElement.dataset.colorScheme=s.colorScheme||"aurora";document.documentElement.dataset.fontSize=s.fontSize||"medium";document.documentElement.dataset.animation=s.animation===false?"off":"on";document.documentElement.dataset.sound=s.sound===false?"off":"on";document.documentElement.lang=(s.language||localStorage.getItem("mini-games-language"))==="en"?"en":"zh-CN";}catch(error){document.documentElement.dataset.theme="dark";document.documentElement.dataset.colorScheme="aurora";document.documentElement.dataset.fontSize="medium";document.documentElement.dataset.animation="on";document.documentElement.dataset.sound="on";}})();</script>
+  <link rel="stylesheet" href="../styles/themes.css">
+  <link rel="stylesheet" href="../styles/global.css">
+  <link rel="stylesheet" href="../styles/layout.css">
+  <link rel="stylesheet" href="../styles/sidebar.css">
+  <link rel="stylesheet" href="../styles/navbar.css">
+  <link rel="stylesheet" href="../styles/modal.css">
+  <link rel="stylesheet" href="../styles/game.css">
+  <link rel="stylesheet" href="../styles/endfield.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar" aria-label="side navigation">
+      <div class="sidebar__top">
+        <a class="sidebar-brand" href="index.html" aria-label="Mini Games home">
+          <span class="brand-logo"><img src="../assets/logos/mini-games-logo.svg" alt="Mini Games"></span>
+          <span class="sidebar-brand__text">Mini Games</span>
+        </a>
+      </div>
+      <nav class="sidebar__nav">
+        <a class="nav-item" href="index.html"><span class="nav-item__icon">H</span><span class="nav-item__text">&#39318;&#39029;</span></a>
+        <a class="nav-item is-active" href="endfield.html"><span class="nav-item__icon">01</span><span class="nav-item__text">&#32456;&#26411;&#22320;</span></a>
+        <a class="nav-item" href="game2.html"><span class="nav-item__icon">02</span><span class="nav-item__text">game2</span></a>
+        <a class="nav-item" href="game3.html"><span class="nav-item__icon">03</span><span class="nav-item__text">game3</span></a>
+        <a class="nav-item" href="game4.html"><span class="nav-item__icon">04</span><span class="nav-item__text">game4</span></a>
+        <a class="nav-item" href="game5.html"><span class="nav-item__icon">05</span><span class="nav-item__text">game5</span></a>
+      </nav>
+      <nav class="sidebar__nav sidebar__nav--bottom">
+        <button class="nav-item" type="button" data-modal-target="#settingsModal"><span class="nav-item__icon">S</span><span class="nav-item__text">&#35774;&#32622;</span></button>
+        <button class="nav-item" type="button" data-modal-target="#aboutModal"><span class="nav-item__icon">i</span><span class="nav-item__text">&#20851;&#20110;</span></button>
+      </nav>
+    </aside>
+
+    <div class="page endfield-page">
+      <header class="topbar topbar--game endfield-glassbar">
+        <div class="topbar__title-group">
+          <a class="topbar__brand" href="index.html" aria-label="back home">
+            <span class="brand-logo"><img src="../assets/logos/mini-games-logo.svg" alt="Mini Games"></span>
+          </a>
+          <div>
+            <nav class="breadcrumb"><a href="index.html">&#39318;&#39029;</a><span>/</span><span>&#32456;&#26411;&#22320;</span></nav>
+            <h1>&#32456;&#26411;&#22320;</h1>
+          </div>
+        </div>
+        <div class="topbar__actions">
+          <a class="top-action" href="index.html"><span>H</span><span class="top-action__text">&#39318;&#39029;</span></a>
+          <button class="top-action" type="button" data-modal-target="#gameInfoModal"><span>i</span><span class="top-action__text">&#28216;&#25103;&#20171;&#32461;</span></button>
+        </div>
+        <button class="avatar" type="button" aria-label="user"><span>U</span></button>
+      </header>
+
+      <main class="game-content">
+        <section class="game-stage">
+          <section class="endfield-shell" data-endfield-game aria-label="Endfield puzzle">
+            <div class="endfield-layout">
+              <aside class="endfield-panel">
+                <p class="section-label">Endfield Protocol</p>
+                <h2 class="endfield-title" data-level-name>&#31532;&#19968;&#20851;</h2>
+                <div class="endfield-actions">
+                  <button class="endfield-button endfield-button--primary" type="button" data-action="start">&#24320;&#22987;&#28216;&#25103;</button>
+                  <button class="endfield-button" type="button" data-action="previous">&#19978;&#19968;&#20851;</button>
+                  <button class="endfield-button" type="button" data-action="next">&#19979;&#19968;&#20851;</button>
+                  <button class="endfield-button" type="button" data-action="reset">&#37325;&#32622;</button>
+                  <a class="endfield-button" href="index.html">&#36820;&#22238;&#20027;&#39029;</a>
+                </div>
+                <div class="endfield-stat-grid">
+                  <div class="endfield-stat"><span>&#24403;&#21069;&#20851;&#21345;</span><strong data-level-index>1/3</strong></div>
+                  <div class="endfield-stat"><span>&#36890;&#20851;&#36827;&#24230;</span><strong data-progress>0/3</strong></div>
+                  <div class="endfield-stat"><span>&#29992;&#26102;&#32479;&#35745;</span><strong data-timer>00:00</strong></div>
+                  <div class="endfield-stat"><span>&#37325;&#32622;&#27425;&#25968;</span><strong data-resets>0</strong></div>
+                </div>
+              </aside>
+
+              <div class="endfield-board-wrap">
+                <div class="endfield-board" data-board aria-label="puzzle board"></div>
+              </div>
+
+              <aside class="endfield-panel endfield-panel--right">
+                <p class="section-label">Piece Dock</p>
+                <h2 class="endfield-title">&#25340;&#22359;&#20179;</h2>
+                <div class="endfield-tray" data-piece-tray aria-label="available pieces"></div>
+                <ul class="endfield-help">
+                  <li><kbd>&#25302;</kbd><span>&#25302;&#25341;&#25340;&#22359;&#21040;&#26827;&#30424;&#65292;&#26494;&#24320;&#21518;&#33258;&#21160;&#21560;&#38468;&#12290;</span></li>
+                  <li><kbd>&#21491;&#38190;</kbd><span>&#26059;&#36716;&#24403;&#21069;&#25340;&#22359; 90 &#24230;&#12290;</span></li>
+                  <li><kbd>R</kbd><span>&#36873;&#20013;&#25340;&#22359;&#21518;&#24555;&#36895;&#26059;&#36716;&#12290;</span></li>
+                </ul>
+              </aside>
+            </div>
+
+            <div class="endfield-drag-layer" data-drag-layer aria-hidden="true"></div>
+            <div class="endfield-toast" data-toast hidden></div>
+            <div class="endfield-complete" data-complete hidden>
+              <div class="endfield-complete__panel">
+                <p class="section-label">Mission Complete</p>
+                <h2 data-complete-title>&#20851;&#21345;&#24050;&#23436;&#25104;</h2>
+                <p>&#34892;&#21015;&#30446;&#26631;&#20840;&#37096;&#21305;&#37197;&#12290;</p>
+                <button class="endfield-button endfield-button--primary" type="button" data-action="complete-next">&#19979;&#19968;&#20851;</button>
+              </div>
+            </div>
+          </section>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <div class="modal-layer" id="modalLayer" aria-hidden="true">
+    <section class="modal" id="gameInfoModal" role="dialog" aria-modal="true" aria-labelledby="gameInfoTitle" hidden>
+      <header class="modal__header">
+        <div><p class="section-label">Game Info</p><h2 id="gameInfoTitle">&#32456;&#26411;&#22320;</h2></div>
+        <button class="modal__close" type="button" data-modal-close aria-label="close">x</button>
+      </header>
+      <div class="modal__body">
+        <p>&#25302;&#25341;&#24182;&#26059;&#36716;&#25340;&#22359;&#65292;&#20351;&#27599;&#19968;&#34892;&#21644;&#27599;&#19968;&#21015;&#30340;&#21344;&#29992;&#25968;&#37327;&#28385;&#36275;&#21457;&#20809;&#25351;&#31034;&#22120;&#12290;</p>
+      </div>
+    </section>
+    <section class="modal" id="settingsModal" role="dialog" aria-modal="true" aria-labelledby="settingsTitle" hidden></section>
+    <section class="modal" id="aboutModal" role="dialog" aria-modal="true" hidden>
+      <header class="modal__header"><div><p class="section-label">About</p><h2>Mini Games Collection</h2></div><button class="modal__close" type="button" data-modal-close aria-label="close">x</button></header>
+      <div class="modal__body"><p>Mini Games Collection</p></div>
+    </section>
+  </div>
+
+  <script src="../scripts/theme.js"></script>
+  <script src="../scripts/sidebar.js"></script>
+  <script src="../scripts/modal.js"></script>
+  <script src="../scripts/language.js"></script>
+  <script src="../frontend/games/endfield/index.bundle.js"></script>
+</body>
+</html>

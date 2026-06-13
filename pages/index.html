@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mini Games Collection</title>
+  <script>(function(){try{var s=JSON.parse(localStorage.getItem("mini-games-settings-v1")||"{}");var theme=s.theme||localStorage.getItem("mini-games-theme")||"dark";document.documentElement.dataset.theme=theme;document.documentElement.dataset.colorScheme=s.colorScheme||"aurora";document.documentElement.dataset.fontSize=s.fontSize||"medium";document.documentElement.dataset.animation=s.animation===false?"off":"on";document.documentElement.dataset.sound=s.sound===false?"off":"on";document.documentElement.lang=(s.language||localStorage.getItem("mini-games-language"))==="en"?"en":"zh-CN";}catch(error){document.documentElement.dataset.theme="dark";document.documentElement.dataset.colorScheme="aurora";document.documentElement.dataset.fontSize="medium";document.documentElement.dataset.animation="on";document.documentElement.dataset.sound="on";}})();</script>
+  <link rel="stylesheet" href="../styles/themes.css">
+  <link rel="stylesheet" href="../styles/global.css">
+  <link rel="stylesheet" href="../styles/layout.css">
+  <link rel="stylesheet" href="../styles/sidebar.css">
+  <link rel="stylesheet" href="../styles/navbar.css">
+  <link rel="stylesheet" href="../styles/modal.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar" aria-label="侧边导航">
+      <div class="sidebar__top">
+        <a class="sidebar-brand" href="index.html" aria-label="Mini Games Collection 首页">
+          <span class="brand-logo"><img src="../assets/logos/mini-games-logo.svg" alt="Mini Games"></span>
+          <span class="sidebar-brand__text">Mini Games</span>
+        </a>
+      </div>
+      <nav class="sidebar__nav">
+        <a class="nav-item is-active" href="index.html"><span class="nav-item__icon">H</span><span class="nav-item__text" data-i18n="nav.home">首页</span></a>
+        <a class="nav-item" href="endfield.html"><span class="nav-item__icon">01</span><span class="nav-item__text">终末地</span></a>
+        <a class="nav-item" href="game2.html"><span class="nav-item__icon">02</span><span class="nav-item__text">game2</span></a>
+        <a class="nav-item" href="game3.html"><span class="nav-item__icon">03</span><span class="nav-item__text">game3</span></a>
+        <a class="nav-item" href="game4.html"><span class="nav-item__icon">04</span><span class="nav-item__text">game4</span></a>
+        <a class="nav-item" href="game5.html"><span class="nav-item__icon">05</span><span class="nav-item__text">game5</span></a>
+      </nav>
+      <nav class="sidebar__nav sidebar__nav--bottom">
+        <button class="nav-item" type="button" data-modal-target="#settingsModal"><span class="nav-item__icon">S</span><span class="nav-item__text" data-i18n="nav.settings">设置</span></button>
+        <button class="nav-item" type="button" data-modal-target="#aboutModal"><span class="nav-item__icon">i</span><span class="nav-item__text" data-i18n="nav.about">关于</span></button>
+      </nav>
+    </aside>
+
+    <div class="page">
+      <header class="topbar topbar--home">
+        <a class="topbar__brand" href="index.html" aria-label="Mini Games Collection 首页">
+          <span class="brand-logo"><img src="../assets/logos/mini-games-logo.svg" alt="Mini Games"></span>
+          <div><p class="topbar__eyebrow">Mini Games Collection</p><h1 data-i18n="app.title">小游戏合集</h1></div>
+        </a>
+        <label class="search" for="gameSearch"><span>Q</span><input id="gameSearch" type="search" placeholder="搜索游戏..." autocomplete="off" data-i18n-placeholder="search.placeholder"></label>
+        <button class="avatar" type="button" aria-label="用户区域"><span>U</span></button>
+      </header>
+
+      <main class="content">
+        <section class="hero">
+          <p class="section-label">Game Lobby</p>
+          <h2 data-i18n="hero.title">选择一个小游戏开始探索</h2>
+          <p data-i18n="hero.copy">统一管理多个小游戏入口，后续可按同一结构快速扩展更多玩法。</p>
+        </section>
+        <section class="games-grid" id="gamesGrid" aria-label="小游戏列表"></section>
+      </main>
+    </div>
+  </div>
+
+  <div class="modal-layer" id="modalLayer" aria-hidden="true">
+    <section class="modal" id="settingsModal" role="dialog" aria-modal="true" aria-labelledby="settingsTitle" hidden></section>
+    <section class="modal" id="aboutModal" role="dialog" aria-modal="true" aria-labelledby="aboutTitle" hidden>
+      <header class="modal__header"><div><p class="section-label">About</p><h2 id="aboutTitle">Mini Games Collection</h2></div><button class="modal__close" type="button" data-modal-close aria-label="关闭">x</button></header>
+      <div class="modal__body"><p data-i18n="about.copy">一个用于集中展示和扩展小游戏入口的现代化合集网站框架。</p><dl class="info-list"><div><dt data-i18n="about.version">版本信息</dt><dd>v1.0.0</dd></div><div><dt data-i18n="about.stack">技术栈</dt><dd>HTML5 / CSS3 / Vanilla JavaScript</dd></div><div><dt data-i18n="about.note">开发说明</dt><dd data-i18n="about.noteCopy">当前版本完成统一导航、主题同步、游戏大厅和占位游戏页。</dd></div></dl></div>
+    </section>
+  </div>
+
+  <script src="../scripts/theme.js"></script>
+  <script src="../scripts/sidebar.js"></script>
+  <script src="../scripts/modal.js"></script>
+  <script src="../scripts/language.js"></script>
+  <script src="../scripts/main.js"></script>
+</body>
+</html>

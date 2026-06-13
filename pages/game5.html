@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>game5 | Mini Games Collection</title>
+  <script>(function(){try{var s=JSON.parse(localStorage.getItem("mini-games-settings-v1")||"{}");var theme=s.theme||localStorage.getItem("mini-games-theme")||"dark";document.documentElement.dataset.theme=theme;document.documentElement.dataset.colorScheme=s.colorScheme||"aurora";document.documentElement.dataset.fontSize=s.fontSize||"medium";document.documentElement.dataset.animation=s.animation===false?"off":"on";document.documentElement.dataset.sound=s.sound===false?"off":"on";document.documentElement.lang=(s.language||localStorage.getItem("mini-games-language"))==="en"?"en":"zh-CN";}catch(error){document.documentElement.dataset.theme="dark";document.documentElement.dataset.colorScheme="aurora";document.documentElement.dataset.fontSize="medium";document.documentElement.dataset.animation="on";document.documentElement.dataset.sound="on";}})();</script>
+  <link rel="stylesheet" href="../styles/themes.css">
+  <link rel="stylesheet" href="../styles/global.css">
+  <link rel="stylesheet" href="../styles/layout.css">
+  <link rel="stylesheet" href="../styles/sidebar.css">
+  <link rel="stylesheet" href="../styles/navbar.css">
+  <link rel="stylesheet" href="../styles/modal.css">
+  <link rel="stylesheet" href="../styles/game.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar" aria-label="侧边导航">
+      <div class="sidebar__top">
+        <a class="sidebar-brand" href="index.html"><span class="brand-logo"><img src="../assets/logos/mini-games-logo.svg" alt="Mini Games"></span><span class="sidebar-brand__text">Mini Games</span></a>
+      </div>
+      <nav class="sidebar__nav">
+        <a class="nav-item" href="index.html"><span class="nav-item__icon">H</span><span class="nav-item__text">首页</span></a>
+        <a class="nav-item" href="endfield.html"><span class="nav-item__icon">01</span><span class="nav-item__text">终末地</span></a>
+        <a class="nav-item" href="game2.html"><span class="nav-item__icon">02</span><span class="nav-item__text">game2</span></a>
+        <a class="nav-item" href="game3.html"><span class="nav-item__icon">03</span><span class="nav-item__text">game3</span></a>
+        <a class="nav-item" href="game4.html"><span class="nav-item__icon">04</span><span class="nav-item__text">game4</span></a>
+        <a class="nav-item is-active" href="game5.html"><span class="nav-item__icon">05</span><span class="nav-item__text">game5</span></a>
+      </nav>
+      <nav class="sidebar__nav sidebar__nav--bottom">
+        <button class="nav-item" type="button" data-modal-target="#settingsModal"><span class="nav-item__icon">S</span><span class="nav-item__text">设置</span></button>
+        <button class="nav-item" type="button" data-modal-target="#aboutModal"><span class="nav-item__icon">i</span><span class="nav-item__text">关于</span></button>
+      </nav>
+    </aside>
+    <div class="page">
+      <header class="topbar topbar--game">
+        <div class="topbar__title-group"><a class="topbar__brand" href="index.html"><span class="brand-logo"><img src="../assets/logos/mini-games-logo.svg" alt="Mini Games"></span></a><div><nav class="breadcrumb"><a href="index.html">首页</a><span>/</span><span>game5</span></nav><h1>game5</h1></div></div>
+        <div class="topbar__actions"><a class="top-action" href="index.html"><span>H</span><span class="top-action__text">首页</span></a><button class="top-action" type="button" data-modal-target="#gameInfoModal"><span>i</span><span class="top-action__text">游戏介绍</span></button></div>
+        <button class="avatar" type="button"><span>U</span></button>
+      </header>
+      <main class="game-content"><section class="game-stage"><section class="playground" aria-label="game5 游戏区域"><div class="playground__placeholder"><span>05</span><p>小游戏内容开发中...</p></div></section></section></main>
+    </div>
+  </div>
+  <div class="modal-layer" id="modalLayer" aria-hidden="true">
+    <section class="modal" id="gameInfoModal" role="dialog" aria-modal="true" hidden><header class="modal__header"><div><p class="section-label">Game Info</p><h2>game5</h2></div><button class="modal__close" type="button" data-modal-close>x</button></header><div class="modal__body"><p>未来可扩展排行榜、成就和多人模式的小游戏入口。</p><dl class="info-list"><div><dt>游戏名称</dt><dd>game5</dd></div><div><dt>玩法说明</dt><dd>小游戏内容开发中。</dd></div><div><dt>操作方式</dt><dd>预留键盘、鼠标、触摸等输入方式说明。</dd></div><div><dt>开发状态</dt><dd>开发中</dd></div><div><dt>更新记录</dt><dd>预留</dd></div></dl></div></section>
+    <section class="modal" id="settingsModal" role="dialog" aria-modal="true" aria-labelledby="settingsTitle" hidden></section>
+    <section class="modal" id="aboutModal" role="dialog" aria-modal="true" hidden><header class="modal__header"><div><p class="section-label">About</p><h2>Mini Games Collection</h2></div><button class="modal__close" type="button" data-modal-close>x</button></header><div class="modal__body"><p>一个用于集中展示和扩展小游戏入口的现代化合集网站框架。</p></div></section>
+  </div>
+  <script src="../scripts/theme.js"></script>
+  <script src="../scripts/sidebar.js"></script>
+  <script src="../scripts/modal.js"></script>
+  <script src="../scripts/language.js"></script>
+</body>
+</html>
