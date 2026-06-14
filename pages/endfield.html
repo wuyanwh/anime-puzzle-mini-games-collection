@@ -130,6 +130,17 @@
   <script src="../scripts/sidebar.js"></script>
   <script src="../scripts/modal.js"></script>
   <script src="../scripts/language.js"></script>
-  <script src="../frontend/games/endfield/index.bundle.js"></script>
+  <script>
+    (function loadEndfieldGame() {
+      var script = document.createElement("script");
+      if (window.location.protocol === "file:") {
+        script.src = "../frontend/games/endfield/index.bundle.js";
+      } else {
+        script.type = "module";
+        script.src = "../frontend/games/endfield/index.js";
+      }
+      document.currentScript.after(script);
+    })();
+  </script>
 </body>
 </html>

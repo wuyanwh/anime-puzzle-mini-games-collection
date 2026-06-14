@@ -1,6 +1,6 @@
 export default {
   id: 2,
-  name: "\u7b2c\u4e8c\u5173",
+  name: "第二关",
   size: 4,
   rows: {
     green: [2, 3, 1, 2],

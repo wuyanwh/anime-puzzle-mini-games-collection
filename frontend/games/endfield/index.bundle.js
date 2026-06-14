@@ -18,29 +18,120 @@
   };
 
   const ENDFIELD_LEVELS = [
-    { id: 1, name: "\u7b2c\u4e00\u5173", size: 4, rows: [3, 3, 4, 2], cols: [2, 4, 3, 3], blocks: ["T", "T", "L"], obstacles: [] },
-    {
-      id: 2,
-      name: "\u7b2c\u4e8c\u5173",
-      size: 4,
-      rows: {
-        green: [2, 3, 1, 2],
-        blue: [1, 1, 1, 2]
-      },
-      cols: {
-        green: [3, 2, 2, 1],
-        blue: [1, 0, 1, 3]
-      },
-      blocks: [
-        { shape: "L", color: "green" },
-        { shape: "J", color: "blue" },
-        { shape: "S", color: "green" }
+  {
+    "id": 1,
+    "name": "\u7b2c\u4e00\u5173",
+    "size": 4,
+    "rows": [
+      3,
+      3,
+      4,
+      2
+    ],
+    "cols": [
+      2,
+      4,
+      3,
+      3
+    ],
+    "blocks": [
+      "T",
+      "T",
+      "L"
+    ],
+    "obstacles": []
+  },
+  {
+    "id": 2,
+    "name": "\u7b2c\u4e8c\u5173",
+    "size": 4,
+    "rows": {
+      "green": [
+        2,
+        3,
+        1,
+        2
       ],
-      fixedBlocks: [{ row: 0, col: 0, color: "blue" }],
-      obstacles: []
+      "blue": [
+        1,
+        1,
+        1,
+        2
+      ]
     },
-    { id: 3, name: "\u7b2c\u4e09\u5173", size: 5, rows: [4, 2, 4, 4, 2], cols: [2, 4, 2, 5, 3], blocks: ["T", "L", "Z", "O"], obstacles: [[0, 4], [4, 0]] }
-  ];
+    "cols": {
+      "green": [
+        3,
+        2,
+        2,
+        1
+      ],
+      "blue": [
+        1,
+        0,
+        1,
+        3
+      ]
+    },
+    "blocks": [
+      {
+        "shape": "L",
+        "color": "green"
+      },
+      {
+        "shape": "J",
+        "color": "blue"
+      },
+      {
+        "shape": "S",
+        "color": "green"
+      }
+    ],
+    "fixedBlocks": [
+      {
+        "row": 0,
+        "col": 0,
+        "color": "blue"
+      }
+    ],
+    "obstacles": []
+  },
+  {
+    "id": 3,
+    "name": "\u7b2c\u4e09\u5173",
+    "size": 5,
+    "rows": [
+      4,
+      2,
+      4,
+      4,
+      2
+    ],
+    "cols": [
+      2,
+      4,
+      2,
+      5,
+      3
+    ],
+    "blocks": [
+      "T",
+      "L",
+      "Z",
+      "O"
+    ],
+    "obstacles": [
+      [
+        0,
+        4
+      ],
+      [
+        4,
+        0
+      ]
+    ]
+  }
+];
 
   class LevelService {
     constructor(levels = ENDFIELD_LEVELS) {
