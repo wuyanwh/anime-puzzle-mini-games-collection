@@ -1,9 +1,20 @@
 export default {
   id: 2,
-  name: "第二关",
+  name: "\u7b2c\u4e8c\u5173",
   size: 4,
-  rows: [3, 4, 3, 2],
-  cols: [3, 2, 3, 4],
-  blocks: ["L", "J", "S"],
+  rows: {
+    green: [2, 3, 1, 2],
+    blue: [1, 1, 1, 2]
+  },
+  cols: {
+    green: [3, 2, 2, 1],
+    blue: [1, 0, 1, 3]
+  },
+  blocks: [
+    { shape: "L", color: "green" },
+    { shape: "J", color: "blue" },
+    { shape: "S", color: "green" }
+  ],
+  fixedBlocks: [{ row: 0, col: 0, color: "blue" }],
   obstacles: []
 };

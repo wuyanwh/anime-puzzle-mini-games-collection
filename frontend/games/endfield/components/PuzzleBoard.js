@@ -1,10 +1,59 @@
 import { createElement } from "../utils/dom.js";
 import { occupiedCells } from "../utils/matrix.js";
+import { PIECE_COLORS, colorToSkin } from "../configs/pieces.js";
+
+const DEFAULT_COLOR = PIECE_COLORS.default;
+const SKIN_CLASSES = Object.keys(PIECE_COLORS)
+  .filter((color) => color !== "default")
+  .map((color) => `skin-${colorToSkin(color)}`);
+
+function normalizeColorTargets(targets, size) {
+  const zeroes = () => Array(size).fill(0);
+
+  if (Array.isArray(targets)) {
+    return { [DEFAULT_COLOR]: [...targets, ...zeroes()].slice(0, size) };
+  }
+
+  if (!targets || typeof targets !== "object") {
+    return { [DEFAULT_COLOR]: zeroes() };
+  }
+
+  return Object.fromEntries(
+    Object.entries(targets).map(([color, values]) => [
+      color,
+      [...(Array.isArray(values) ? values : []), ...zeroes()].slice(0, size)
+    ])
+  );
+}
+
+function normalizeFixedBlocks(fixedBlocks = []) {
+  return fixedBlocks.map((block, index) => {
+    if (Array.isArray(block)) {
+      const [row, col, color = DEFAULT_COLOR] = block;
+      return { id: `fixed-${index + 1}`, row, col, color, skin: colorToSkin(color) };
+    }
+
+    const color = block.color || DEFAULT_COLOR;
+    return {
+      id: block.id || `fixed-${index + 1}`,
+      row: block.row,
+      col: block.col,
+      color,
+      skin: colorToSkin(color)
+    };
+  });
+}
+
+function getBlockColor(block) {
+  return typeof block === "string" ? DEFAULT_COLOR : block.color || DEFAULT_COLOR;
+}
 
 export class PuzzleBoard {
   constructor(root) {
     this.root = root;
     this.level = null;
+    this.targets = { rows: {}, cols: {}, colors: [DEFAULT_COLOR] };
+    this.fixedBlocks = [];
     this.placedPieces = new Map();
     this.cellElements = [];
     this.previewCells = [];
@@ -13,6 +62,8 @@ export class PuzzleBoard {
   loadLevel(level) {
     this.level = level;
     this.placedPieces.clear();
+    this.fixedBlocks = normalizeFixedBlocks(level.fixedBlocks || level.litBlocks || level.fixedCells);
+    this.targets = this.createTargets(level);
     this.render();
   }
 
@@ -27,11 +78,19 @@ export class PuzzleBoard {
     const matrix = createElement("div", "endfield-board__matrix");
 
     for (let col = 0; col < size; col += 1) {
-      colHints.appendChild(this.createHint("col", col, this.level.cols[col] ?? 0));
+      const stack = createElement("div", "endfield-hint-stack endfield-hint-stack--col");
+      this.targets.colors.forEach((color) => {
+        stack.appendChild(this.createHint("col", col, this.targets.cols[color]?.[col] ?? 0, color));
+      });
+      colHints.appendChild(stack);
     }
 
     for (let row = 0; row < size; row += 1) {
-      rowHints.appendChild(this.createHint("row", row, this.level.rows[row] ?? 0));
+      const stack = createElement("div", "endfield-hint-stack endfield-hint-stack--row");
+      this.targets.colors.forEach((color) => {
+        stack.appendChild(this.createHint("row", row, this.targets.rows[color]?.[row] ?? 0, color));
+      });
+      rowHints.appendChild(stack);
 
       for (let col = 0; col < size; col += 1) {
         const cell = createElement("div", "endfield-cell", {
@@ -39,6 +98,11 @@ export class PuzzleBoard {
           "data-col": col
         });
         if (this.isObstacle(row, col)) cell.classList.add("is-obstacle");
+        const fixedBlock = this.getFixedBlock(row, col);
+        if (fixedBlock) {
+          cell.classList.add("is-fixed", "is-filled", `skin-${fixedBlock.skin}`);
+          cell.dataset.fixedColor = fixedBlock.color;
+        }
         matrix.appendChild(cell);
         this.cellElements.push(cell);
       }
@@ -50,10 +114,31 @@ export class PuzzleBoard {
     this.updateStats();
   }
 
-  createHint(axis, index, target) {
-    const hint = createElement("div", `endfield-hint endfield-hint--${axis}`, {
+  createTargets(level) {
+    const size = this.getSize();
+    const rows = normalizeColorTargets(level.rows, size);
+    const cols = normalizeColorTargets(level.cols, size);
+    const blockColors = (level.blocks || []).map(getBlockColor);
+    const fixedColors = this.fixedBlocks.map((block) => block.color);
+    const colors = [...new Set([...Object.keys(rows), ...Object.keys(cols), ...blockColors, ...fixedColors])];
+    colors.forEach((color) => {
+      rows[color] ||= Array(size).fill(0);
+      cols[color] ||= Array(size).fill(0);
+    });
+
+    return {
+      rows,
+      cols,
+      colors: colors.length ? colors : [DEFAULT_COLOR]
+    };
+  }
+
+  createHint(axis, index, target, color = DEFAULT_COLOR) {
+    const skin = colorToSkin(color);
+    const hint = createElement("div", `endfield-hint endfield-hint--${axis} skin-${skin}`, {
       [`data-${axis}-hint`]: index,
-      "aria-label": `${axis === "col" ? "\u5217" : "\u884c"}\u76ee\u6807 ${target}`
+      "data-color": color,
+      "aria-label": `${axis === "col" ? "\u5217" : "\u884c"}${color}\u76ee\u6807 ${target}`
     });
 
     for (let item = 0; item < target; item += 1) {
@@ -87,6 +172,10 @@ export class PuzzleBoard {
     return this.level?.obstacles?.some(([obstacleRow, obstacleCol]) => obstacleRow === row && obstacleCol === col);
   }
 
+  getFixedBlock(row, col) {
+    return this.fixedBlocks.find((block) => block.row === row && block.col === col);
+  }
+
   canPlace(piece, origin, options = {}) {
     const size = this.getSize();
     const cells = occupiedCells(piece.matrix, origin);
@@ -94,6 +183,7 @@ export class PuzzleBoard {
     return cells.every(({ row, col }) => {
       if (row < 0 || col < 0 || row >= size || col >= size) return false;
       if (this.isObstacle(row, col)) return false;
+      if (this.getFixedBlock(row, col)) return false;
 
       for (const [pieceId, placed] of this.placedPieces.entries()) {
         if (pieceId === options.ignoreId) continue;
@@ -136,8 +226,16 @@ export class PuzzleBoard {
 
   paintPlacedCells() {
     this.cellElements.forEach((cell) => {
-      cell.classList.remove("is-filled", "skin-green", "skin-blue", "skin-yellow", "skin-red", "is-placed-flash");
+      cell.classList.remove("is-filled", "is-fixed", "is-placed-flash", ...SKIN_CLASSES);
       cell.removeAttribute("data-piece-id");
+      cell.removeAttribute("data-fixed-color");
+    });
+
+    this.fixedBlocks.forEach((fixedBlock) => {
+      const cell = this.getCell(fixedBlock.row, fixedBlock.col);
+      if (!cell) return;
+      cell.classList.add("is-filled", "is-fixed", `skin-${fixedBlock.skin}`);
+      cell.dataset.fixedColor = fixedBlock.color;
     });
 
     for (const placed of this.placedPieces.values()) {
@@ -167,13 +265,27 @@ export class PuzzleBoard {
 
   getStats() {
     const size = this.getSize();
-    const rows = Array(size).fill(0);
-    const cols = Array(size).fill(0);
+    const rows = Object.fromEntries(this.targets.colors.map((color) => [color, Array(size).fill(0)]));
+    const cols = Object.fromEntries(this.targets.colors.map((color) => [color, Array(size).fill(0)]));
+
+    this.fixedBlocks.forEach(({ row, col, color }) => {
+      if (!rows[color]) {
+        rows[color] = Array(size).fill(0);
+        cols[color] = Array(size).fill(0);
+      }
+      if (row >= 0 && row < size) rows[color][row] += 1;
+      if (col >= 0 && col < size) cols[color][col] += 1;
+    });
 
     for (const placed of this.placedPieces.values()) {
       occupiedCells(placed.matrix, placed.origin).forEach(({ row, col }) => {
-        rows[row] += 1;
-        cols[col] += 1;
+        const color = placed.color || DEFAULT_COLOR;
+        if (!rows[color]) {
+          rows[color] = Array(size).fill(0);
+          cols[color] = Array(size).fill(0);
+        }
+        rows[color][row] += 1;
+        cols[color][col] += 1;
       });
     }
 
@@ -184,12 +296,14 @@ export class PuzzleBoard {
     if (!this.level) return;
     const stats = this.getStats();
 
-    stats.rows.forEach((count, row) => {
-      this.updateHint(`[data-row-hint="${row}"]`, count, this.level.rows[row] ?? 0);
-    });
+    this.targets.colors.forEach((color) => {
+      stats.rows[color].forEach((count, row) => {
+        this.updateHint(`[data-row-hint="${row}"][data-color="${color}"]`, count, this.targets.rows[color]?.[row] ?? 0);
+      });
 
-    stats.cols.forEach((count, col) => {
-      this.updateHint(`[data-col-hint="${col}"]`, count, this.level.cols[col] ?? 0);
+      stats.cols[color].forEach((count, col) => {
+        this.updateHint(`[data-col-hint="${col}"][data-color="${color}"]`, count, this.targets.cols[color]?.[col] ?? 0);
+      });
     });
   }
 
@@ -211,8 +325,10 @@ export class PuzzleBoard {
     if (this.placedPieces.size === 0) return false;
 
     for (let index = 0; index < size; index += 1) {
-      if (stats.rows[index] !== (this.level.rows[index] ?? 0)) return false;
-      if (stats.cols[index] !== (this.level.cols[index] ?? 0)) return false;
+      for (const color of this.targets.colors) {
+        if (stats.rows[color][index] !== (this.targets.rows[color]?.[index] ?? 0)) return false;
+        if (stats.cols[color][index] !== (this.targets.cols[color]?.[index] ?? 0)) return false;
+      }
     }
 
     return true;
