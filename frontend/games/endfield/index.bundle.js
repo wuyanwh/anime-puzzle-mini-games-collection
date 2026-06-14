@@ -205,7 +205,7 @@
       "levelId": 1,
       "placements": [
         {
-          "pieceId": "T1",
+          "pieceId": "I1",
           "origin": {
             "row": 0,
             "col": 0
@@ -215,51 +215,23 @@
               1,
               1,
               1
-            ],
-            [
-              0,
-              1,
-              0
             ]
           ]
         },
         {
-          "pieceId": "T2",
+          "pieceId": "D2",
           "origin": {
-            "row": 2,
+            "row": 1,
             "col": 0
           },
           "matrix": [
             [
               1,
-              1,
               1
             ],
             [
-              0,
               1,
               0
-            ]
-          ]
-        },
-        {
-          "pieceId": "L3",
-          "origin": {
-            "row": 1,
-            "col": 2
-          },
-          "matrix": [
-            [
-              1,
-              1
-            ],
-            [
-              0,
-              1
-            ],
-            [
-              0,
-              1
             ]
           ]
         }
@@ -545,7 +517,91 @@
         2
       ]
     ],
-    "answer": null
+    "answer": {
+      "levelId": 4,
+      "placements": [
+        {
+          "pieceId": "L1",
+          "origin": {
+            "row": 2,
+            "col": 0
+          },
+          "matrix": [
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ]
+        },
+        {
+          "pieceId": "L2",
+          "origin": {
+            "row": 0,
+            "col": 0
+          },
+          "matrix": [
+            [
+              1,
+              1,
+              1
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pieceId": "L3",
+          "origin": {
+            "row": 0,
+            "col": 3
+          },
+          "matrix": [
+            [
+              1,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "pieceId": "L4",
+          "origin": {
+            "row": 3,
+            "col": 2
+          },
+          "matrix": [
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              1,
+              1,
+              1
+            ]
+          ]
+        }
+      ]
+    }
   },
   {
     "id": 5,
@@ -572,7 +628,92 @@
       "V"
     ],
     "obstacles": [],
-    "answer": null
+    "answer": {
+      "levelId": 5,
+      "placements": [
+        {
+          "pieceId": "L1",
+          "origin": {
+            "row": 0,
+            "col": 3
+          },
+          "matrix": [
+            [
+              1,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "pieceId": "L2",
+          "origin": {
+            "row": 3,
+            "col": 2
+          },
+          "matrix": [
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              1,
+              1,
+              1
+            ]
+          ]
+        },
+        {
+          "pieceId": "D3",
+          "origin": {
+            "row": 3,
+            "col": 0
+          },
+          "matrix": [
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ]
+        },
+        {
+          "pieceId": "V4",
+          "origin": {
+            "row": 0,
+            "col": 0
+          },
+          "matrix": [
+            [
+              1,
+              1,
+              1
+            ],
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    }
   },
   {
     "id": 6,
@@ -599,7 +740,93 @@
       "O"
     ],
     "obstacles": [],
-    "answer": null
+    "answer": {
+      "levelId": 6,
+      "placements": [
+        {
+          "pieceId": "V1",
+          "origin": {
+            "row": 0,
+            "col": 2
+          },
+          "matrix": [
+            [
+              1,
+              1,
+              1
+            ],
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "pieceId": "V2",
+          "origin": {
+            "row": 2,
+            "col": 0
+          },
+          "matrix": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              1,
+              1,
+              1
+            ]
+          ]
+        },
+        {
+          "pieceId": "O3",
+          "origin": {
+            "row": 0,
+            "col": 0
+          },
+          "matrix": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ]
+          ]
+        },
+        {
+          "pieceId": "O4",
+          "origin": {
+            "row": 3,
+            "col": 3
+          },
+          "matrix": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ]
+          ]
+        }
+      ]
+    }
   },
   {
     "id": 7,
@@ -644,7 +871,75 @@
         2
       ]
     ],
-    "answer": null
+    "answer": {
+      "levelId": 7,
+      "placements": [
+        {
+          "pieceId": "S1",
+          "origin": {
+            "row": 2,
+            "col": 0
+          },
+          "matrix": [
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "pieceId": "Z2",
+          "origin": {
+            "row": 0,
+            "col": 2
+          },
+          "matrix": [
+            [
+              1,
+              1,
+              0
+            ],
+            [
+              0,
+              1,
+              1
+            ]
+          ]
+        },
+        {
+          "pieceId": "Q3",
+          "origin": {
+            "row": 0,
+            "col": 0
+          },
+          "matrix": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              1,
+              1,
+              1
+            ],
+            [
+              0,
+              1,
+              0
+            ]
+          ]
+        }
+      ]
+    }
   },
   {
     "id": 8,
@@ -693,7 +988,70 @@
         1
       ]
     ],
-    "answer": null
+    "answer": {
+      "levelId": 8,
+      "placements": [
+        {
+          "pieceId": "L1",
+          "origin": {
+            "row": 0,
+            "col": 0
+          },
+          "matrix": [
+            [
+              1,
+              1,
+              1
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pieceId": "L2",
+          "origin": {
+            "row": 1,
+            "col": 2
+          },
+          "matrix": [
+            [
+              1,
+              1,
+              1
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pieceId": "L3",
+          "origin": {
+            "row": 2,
+            "col": 0
+          },
+          "matrix": [
+            [
+              1,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ]
+          ]
+        }
+      ]
+    }
   },
   {
     "id": 9,
@@ -729,7 +1087,85 @@
         4
       ]
     ],
-    "answer": null
+    "answer": {
+      "levelId": 9,
+      "placements": [
+        {
+          "pieceId": "L1",
+          "origin": {
+            "row": 0,
+            "col": 0
+          },
+          "matrix": [
+            [
+              1,
+              1,
+              1
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pieceId": "D2",
+          "origin": {
+            "row": 3,
+            "col": 0
+          },
+          "matrix": [
+            [
+              1,
+              1
+            ],
+            [
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "pieceId": "T3",
+          "origin": {
+            "row": 0,
+            "col": 2
+          },
+          "matrix": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              1,
+              1,
+              1
+            ]
+          ]
+        },
+        {
+          "pieceId": "T4",
+          "origin": {
+            "row": 1,
+            "col": 0
+          },
+          "matrix": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              1,
+              1,
+              1
+            ]
+          ]
+        }
+      ]
+    }
   },
   {
     "id": 10,
@@ -762,7 +1198,107 @@
         2
       ]
     ],
-    "answer": null
+    "answer": {
+      "levelId": 10,
+      "placements": [
+        {
+          "pieceId": "Q1",
+          "origin": {
+            "row": 0,
+            "col": 0
+          },
+          "matrix": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              1,
+              1,
+              1
+            ],
+            [
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        {
+          "pieceId": "Q2",
+          "origin": {
+            "row": 2,
+            "col": 2
+          },
+          "matrix": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              1,
+              1,
+              1
+            ],
+            [
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        {
+          "pieceId": "W3",
+          "origin": {
+            "row": 0,
+            "col": 2
+          },
+          "matrix": [
+            [
+              1,
+              1,
+              0
+            ],
+            [
+              0,
+              1,
+              1
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "pieceId": "W4",
+          "origin": {
+            "row": 2,
+            "col": 0
+          },
+          "matrix": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              1,
+              1,
+              0
+            ],
+            [
+              0,
+              1,
+              1
+            ]
+          ]
+        }
+      ]
+    }
   },
   {
     "id": 11,
@@ -790,7 +1326,115 @@
       "Z"
     ],
     "obstacles": [],
-    "answer": null
+    "answer": {
+      "levelId": 11,
+      "placements": [
+        {
+          "pieceId": "Q1",
+          "origin": {
+            "row": 1,
+            "col": 1
+          },
+          "matrix": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              1,
+              1,
+              1
+            ],
+            [
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        {
+          "pieceId": "Z2",
+          "origin": {
+            "row": 0,
+            "col": 2
+          },
+          "matrix": [
+            [
+              1,
+              1,
+              0
+            ],
+            [
+              0,
+              1,
+              1
+            ]
+          ]
+        },
+        {
+          "pieceId": "Z3",
+          "origin": {
+            "row": 3,
+            "col": 0
+          },
+          "matrix": [
+            [
+              1,
+              1,
+              0
+            ],
+            [
+              0,
+              1,
+              1
+            ]
+          ]
+        },
+        {
+          "pieceId": "Z4",
+          "origin": {
+            "row": 0,
+            "col": 0
+          },
+          "matrix": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              0
+            ]
+          ]
+        },
+        {
+          "pieceId": "Z5",
+          "origin": {
+            "row": 2,
+            "col": 3
+          },
+          "matrix": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              0
+            ]
+          ]
+        }
+      ]
+    }
   },
   {
     "id": 12,
@@ -830,7 +1474,92 @@
         4
       ]
     ],
-    "answer": null
+    "answer": {
+      "levelId": 12,
+      "placements": [
+        {
+          "pieceId": "D1",
+          "origin": {
+            "row": 2,
+            "col": 2
+          },
+          "matrix": [
+            [
+              1,
+              1
+            ],
+            [
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "pieceId": "W2",
+          "origin": {
+            "row": 2,
+            "col": 0
+          },
+          "matrix": [
+            [
+              1,
+              1,
+              0
+            ],
+            [
+              0,
+              1,
+              1
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "pieceId": "S3",
+          "origin": {
+            "row": 0,
+            "col": 3
+          },
+          "matrix": [
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "pieceId": "T4",
+          "origin": {
+            "row": 0,
+            "col": 0
+          },
+          "matrix": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              1,
+              1,
+              1
+            ]
+          ]
+        }
+      ]
+    }
   },
   {
     "id": 13,
@@ -884,7 +1613,101 @@
         5
       ]
     ],
-    "answer": null
+    "answer": {
+      "levelId": 13,
+      "placements": [
+        {
+          "pieceId": "Z1",
+          "origin": {
+            "row": 0,
+            "col": 0
+          },
+          "matrix": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              0
+            ]
+          ]
+        },
+        {
+          "pieceId": "S2",
+          "origin": {
+            "row": 0,
+            "col": 4
+          },
+          "matrix": [
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "pieceId": "P3",
+          "origin": {
+            "row": 2,
+            "col": 2
+          },
+          "matrix": [
+            [
+              0,
+              1,
+              1
+            ],
+            [
+              0,
+              1,
+              1
+            ],
+            [
+              1,
+              1,
+              0
+            ]
+          ]
+        },
+        {
+          "pieceId": "P4",
+          "origin": {
+            "row": 1,
+            "col": 1
+          },
+          "matrix": [
+            [
+              0,
+              1,
+              1
+            ],
+            [
+              1,
+              1,
+              0
+            ],
+            [
+              1,
+              1,
+              0
+            ]
+          ]
+        }
+      ]
+    }
   },
   {
     "id": 14,
@@ -1002,7 +1825,91 @@
         3
       ]
     ],
-    "answer": null
+    "answer": {
+      "levelId": 14,
+      "placements": [
+        {
+          "pieceId": "U1",
+          "origin": {
+            "row": 2,
+            "col": 0
+          },
+          "matrix": [
+            [
+              1,
+              0,
+              1
+            ],
+            [
+              1,
+              1,
+              1
+            ]
+          ]
+        },
+        {
+          "pieceId": "L2",
+          "origin": {
+            "row": 2,
+            "col": 3
+          },
+          "matrix": [
+            [
+              1,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "pieceId": "L3",
+          "origin": {
+            "row": 3,
+            "col": 1
+          },
+          "matrix": [
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              1,
+              1,
+              1
+            ]
+          ]
+        },
+        {
+          "pieceId": "Z4",
+          "origin": {
+            "row": 2,
+            "col": 5
+          },
+          "matrix": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              0
+            ]
+          ]
+        }
+      ]
+    }
   }
 ];
   class LevelService {
