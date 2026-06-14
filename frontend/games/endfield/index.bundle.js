@@ -1,13 +1,177 @@
 (function initEndfieldBundle() {
   const PIECE_SHAPES = {
-    L: [[1, 0], [1, 0], [1, 1]],
-    T: [[1, 1, 1], [0, 1, 0]],
-    I: [[1, 1, 1, 1]],
-    O: [[1, 1], [1, 1]],
-    S: [[0, 1, 1], [1, 1, 0]],
-    Z: [[1, 1, 0], [0, 1, 1]],
-    J: [[0, 1], [0, 1], [1, 1]]
-  };
+  "L": [
+    [
+      1,
+      0
+    ],
+    [
+      1,
+      0
+    ],
+    [
+      1,
+      1
+    ]
+  ],
+  "T": [
+    [
+      1,
+      1,
+      1
+    ],
+    [
+      0,
+      1,
+      0
+    ]
+  ],
+  "I": [
+    [
+      1,
+      1,
+      1
+    ]
+  ],
+  "O": [
+    [
+      1,
+      1
+    ],
+    [
+      1,
+      1
+    ]
+  ],
+  "S": [
+    [
+      0,
+      1,
+      1
+    ],
+    [
+      1,
+      1,
+      0
+    ]
+  ],
+  "Z": [
+    [
+      1,
+      1,
+      0
+    ],
+    [
+      0,
+      1,
+      1
+    ]
+  ],
+  "J": [
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      1
+    ],
+    [
+      1,
+      1
+    ]
+  ],
+  "D": [
+    [
+      1,
+      1
+    ],
+    [
+      1,
+      0
+    ]
+  ],
+  "V": [
+    [
+      1,
+      1,
+      1
+    ],
+    [
+      1,
+      0,
+      0
+    ],
+    [
+      1,
+      0,
+      0
+    ]
+  ],
+  "Q": [
+    [
+      0,
+      1,
+      0
+    ],
+    [
+      1,
+      1,
+      1
+    ],
+    [
+      0,
+      1,
+      0
+    ]
+  ],
+  "W": [
+    [
+      1,
+      1,
+      0
+    ],
+    [
+      0,
+      1,
+      1
+    ],
+    [
+      0,
+      0,
+      1
+    ]
+  ],
+  "P": [
+    [
+      0,
+      1,
+      1
+    ],
+    [
+      0,
+      1,
+      1
+    ],
+    [
+      1,
+      1,
+      0
+    ]
+  ],
+  "U": [
+    [
+      1,
+      0,
+      1
+    ],
+    [
+      1,
+      1,
+      1
+    ]
+  ]
+};
 
   const PIECE_COLORS = {
     default: "green",
@@ -20,30 +184,91 @@
   const ENDFIELD_LEVELS = [
   {
     "id": 1,
-    "name": "\u7b2c\u4e00\u5173",
-    "size": 4,
+    "name": "\u65b0\u624b\u5173\u5361",
+    "size": 3,
     "rows": [
       3,
-      3,
-      4,
-      2
+      2,
+      1
     ],
     "cols": [
-      2,
-      4,
       3,
-      3
+      2,
+      1
     ],
     "blocks": [
-      "T",
-      "T",
-      "L"
+      "I",
+      "D"
     ],
-    "obstacles": []
+    "obstacles": [],
+    "answer": {
+      "levelId": 1,
+      "placements": [
+        {
+          "pieceId": "T1",
+          "origin": {
+            "row": 0,
+            "col": 0
+          },
+          "matrix": [
+            [
+              1,
+              1,
+              1
+            ],
+            [
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        {
+          "pieceId": "T2",
+          "origin": {
+            "row": 2,
+            "col": 0
+          },
+          "matrix": [
+            [
+              1,
+              1,
+              1
+            ],
+            [
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        {
+          "pieceId": "L3",
+          "origin": {
+            "row": 1,
+            "col": 2
+          },
+          "matrix": [
+            [
+              1,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ]
+          ]
+        }
+      ]
+    }
   },
   {
     "id": 2,
-    "name": "\u7b2c\u4e8c\u5173",
+    "name": "\u54c7!\u8fd8\u6709\u5f02\u8272!",
     "size": 4,
     "rows": {
       "green": [
@@ -94,11 +319,77 @@
         "color": "blue"
       }
     ],
-    "obstacles": []
+    "obstacles": [],
+    "answer": {
+      "levelId": 2,
+      "placements": [
+        {
+          "pieceId": "L1",
+          "origin": {
+            "row": 1,
+            "col": 0
+          },
+          "matrix": [
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ]
+        },
+        {
+          "pieceId": "J2",
+          "origin": {
+            "row": 1,
+            "col": 2
+          },
+          "matrix": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ]
+          ]
+        },
+        {
+          "pieceId": "S3",
+          "origin": {
+            "row": 0,
+            "col": 1
+          },
+          "matrix": [
+            [
+              0,
+              1,
+              1
+            ],
+            [
+              1,
+              1,
+              0
+            ]
+          ]
+        }
+      ]
+    }
   },
   {
     "id": 3,
-    "name": "\u7b2c\u4e09\u5173",
+    "name": "\u8fc7\u7684\u4e86\u6211,\u518d\u8c08\u672a\u6765",
     "size": 5,
     "rows": [
       4,
@@ -129,10 +420,591 @@
         4,
         0
       ]
-    ]
+    ],
+    "answer": {
+      "levelId": 3,
+      "placements": [
+        {
+          "pieceId": "T1",
+          "origin": {
+            "row": 0,
+            "col": 0
+          },
+          "matrix": [
+            [
+              1,
+              1,
+              1
+            ],
+            [
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        {
+          "pieceId": "L2",
+          "origin": {
+            "row": 0,
+            "col": 3
+          },
+          "matrix": [
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ]
+        },
+        {
+          "pieceId": "Z3",
+          "origin": {
+            "row": 2,
+            "col": 0
+          },
+          "matrix": [
+            [
+              1,
+              1,
+              0
+            ],
+            [
+              0,
+              1,
+              1
+            ]
+          ]
+        },
+        {
+          "pieceId": "O4",
+          "origin": {
+            "row": 3,
+            "col": 3
+          },
+          "matrix": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ]
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": 4,
+    "name": "\u4e00\u4e2a\u5708",
+    "size": 5,
+    "rows": [
+      5,
+      2,
+      2,
+      2,
+      5
+    ],
+    "cols": [
+      5,
+      2,
+      2,
+      2,
+      5
+    ],
+    "blocks": [
+      "L",
+      "L",
+      "L",
+      "L"
+    ],
+    "obstacles": [
+      [
+        2,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        2
+      ]
+    ],
+    "answer": null
+  },
+  {
+    "id": 5,
+    "name": "\u53c8\u4e00\u4e2a\u5708",
+    "size": 5,
+    "rows": [
+      5,
+      2,
+      2,
+      2,
+      5
+    ],
+    "cols": [
+      5,
+      2,
+      2,
+      2,
+      5
+    ],
+    "blocks": [
+      "L",
+      "L",
+      "D",
+      "V"
+    ],
+    "obstacles": [],
+    "answer": null
+  },
+  {
+    "id": 6,
+    "name": "\u8fd8\u662f\u5708?",
+    "size": 5,
+    "rows": [
+      5,
+      3,
+      2,
+      3,
+      5
+    ],
+    "cols": [
+      5,
+      3,
+      2,
+      3,
+      5
+    ],
+    "blocks": [
+      "V",
+      "V",
+      "O",
+      "O"
+    ],
+    "obstacles": [],
+    "answer": null
+  },
+  {
+    "id": 7,
+    "name": "\u7bad\u5934",
+    "size": 5,
+    "rows": [
+      4,
+      5,
+      3,
+      2,
+      1
+    ],
+    "cols": [
+      4,
+      5,
+      3,
+      2,
+      1
+    ],
+    "blocks": [
+      "S",
+      "Z",
+      "Q"
+    ],
+    "obstacles": [
+      [
+        3,
+        3
+      ],
+      [
+        4,
+        4
+      ]
+    ],
+    "fixedBlocks": [
+      [
+        0,
+        0
+      ],
+      [
+        2,
+        2
+      ]
+    ],
+    "answer": null
+  },
+  {
+    "id": 8,
+    "name": "\u5927\u7bad\u5934",
+    "size": 5,
+    "rows": [
+      4,
+      5,
+      3,
+      2,
+      1
+    ],
+    "cols": [
+      4,
+      5,
+      3,
+      2,
+      1
+    ],
+    "blocks": [
+      "L",
+      "L",
+      "L"
+    ],
+    "obstacles": [
+      [
+        3,
+        3
+      ],
+      [
+        4,
+        4
+      ]
+    ],
+    "fixedBlocks": [
+      [
+        3,
+        0
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "answer": null
+  },
+  {
+    "id": 9,
+    "name": "\u5176\u5b9e\u6211\u89c9\u5f97\u50cf\u9550\u5b50",
+    "size": 5,
+    "rows": [
+      4,
+      5,
+      3,
+      2,
+      1
+    ],
+    "cols": [
+      4,
+      5,
+      3,
+      2,
+      1
+    ],
+    "blocks": [
+      "L",
+      "D",
+      "T",
+      "T"
+    ],
+    "obstacles": [
+      [
+        3,
+        3
+      ],
+      [
+        4,
+        4
+      ]
+    ],
+    "answer": null
+  },
+  {
+    "id": 10,
+    "name": "\u56db\u5468\u7559\u7a7a",
+    "size": 5,
+    "rows": [
+      3,
+      5,
+      5,
+      5,
+      3
+    ],
+    "cols": [
+      3,
+      5,
+      5,
+      5,
+      3
+    ],
+    "blocks": [
+      "Q",
+      "Q",
+      "W",
+      "W"
+    ],
+    "obstacles": [],
+    "fixedBlocks": [
+      [
+        2,
+        2
+      ]
+    ],
+    "answer": null
+  },
+  {
+    "id": 11,
+    "name": "\u6709\u6ca1\u6709\u70b9\u50cf\u5b54\u660e\u9501?",
+    "size": 5,
+    "rows": [
+      3,
+      5,
+      5,
+      5,
+      3
+    ],
+    "cols": [
+      3,
+      5,
+      5,
+      5,
+      3
+    ],
+    "blocks": [
+      "Q",
+      "Z",
+      "Z",
+      "Z",
+      "Z"
+    ],
+    "obstacles": [],
+    "answer": null
+  },
+  {
+    "id": 12,
+    "name": "\u7231\u4f60\u54e6",
+    "size": 5,
+    "rows": [
+      2,
+      5,
+      5,
+      3,
+      1
+    ],
+    "cols": [
+      2,
+      4,
+      4,
+      4,
+      2
+    ],
+    "blocks": [
+      "D",
+      "W",
+      "S",
+      "T"
+    ],
+    "obstacles": [
+      [
+        0,
+        2
+      ],
+      [
+        4,
+        0
+      ],
+      [
+        4,
+        4
+      ]
+    ],
+    "answer": null
+  },
+  {
+    "id": 13,
+    "name": "\u662f\u771f\u7684",
+    "size": 6,
+    "rows": [
+      2,
+      6,
+      6,
+      4,
+      2,
+      0
+    ],
+    "cols": [
+      2,
+      4,
+      4,
+      4,
+      4,
+      2
+    ],
+    "blocks": [
+      "Z",
+      "S",
+      "P",
+      "P"
+    ],
+    "obstacles": [
+      [
+        4,
+        0
+      ],
+      [
+        5,
+        0
+      ],
+      [
+        5,
+        1
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        5,
+        4
+      ],
+      [
+        5,
+        5
+      ]
+    ],
+    "answer": null
+  },
+  {
+    "id": 14,
+    "name": "\u6211\u559c\u6b22\u4f60,\u4f60\u559c\u6b22\u6211",
+    "size": 7,
+    "rows": [
+      2,
+      6,
+      7,
+      7,
+      5,
+      3,
+      1
+    ],
+    "cols": [
+      3,
+      5,
+      5,
+      5,
+      5,
+      5,
+      3
+    ],
+    "blocks": [
+      "U",
+      "L",
+      "L",
+      "Z"
+    ],
+    "obstacles": [
+      [
+        5,
+        0
+      ],
+      [
+        6,
+        0
+      ],
+      [
+        6,
+        1
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        6,
+        5
+      ],
+      [
+        6,
+        6
+      ],
+      [
+        0,
+        3
+      ]
+    ],
+    "fixedBlocks": [
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        0,
+        5
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        6
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        5,
+        2
+      ],
+      [
+        5,
+        3
+      ],
+      [
+        5,
+        4
+      ],
+      [
+        6,
+        3
+      ]
+    ],
+    "answer": null
   }
 ];
-
   class LevelService {
     constructor(levels = ENDFIELD_LEVELS) {
       this.levels = levels;
@@ -282,11 +1154,13 @@
       this.placedPieces = new Map();
       this.cellElements = [];
       this.previewCells = [];
+      this.hintCells = [];
     }
 
     loadLevel(level) {
       this.level = level;
       this.placedPieces.clear();
+      this.clearAnswerHint();
       this.fixedBlocks = normalizeFixedBlocks(level.fixedBlocks || level.litBlocks || level.fixedCells);
       this.targets = this.createTargets(level);
       this.render();
@@ -471,6 +1345,23 @@
       this.previewCells = [];
     }
 
+    showAnswerHint(answer) {
+      this.clearAnswerHint();
+      answer?.placements?.forEach((placement) => {
+        occupiedCells(placement.matrix, placement.origin).forEach(({ row, col }) => {
+          const cell = this.getCell(row, col);
+          if (!cell || cell.classList.contains("is-fixed")) return;
+          cell.classList.add("is-answer-hint");
+          this.hintCells.push(cell);
+        });
+      });
+    }
+
+    clearAnswerHint() {
+      this.hintCells.forEach((cell) => cell.classList.remove("is-answer-hint"));
+      this.hintCells = [];
+    }
+
     getStats() {
       const size = this.getSize();
       const rows = Object.fromEntries(this.targets.colors.map((color) => [color, Array(size).fill(0)]));
@@ -614,6 +1505,11 @@
       this.element.style.height = "";
       this.element.style.left = "";
       this.element.style.top = "";
+    }
+
+    setMatrix(matrix) {
+      this.matrix = cloneMatrix(matrix);
+      this.updateElement();
     }
   }
 
@@ -787,6 +1683,8 @@
       this.root.querySelector("[data-action='reset']").addEventListener("click", () => this.resetLevel(true));
       this.root.querySelector("[data-action='next']").addEventListener("click", () => this.loadLevel(this.levelManager.next(), true));
       this.root.querySelector("[data-action='previous']").addEventListener("click", () => this.loadLevel(this.levelManager.previous(), true));
+      this.root.querySelector("[data-action='hint']").addEventListener("click", () => this.showHint());
+      this.root.querySelector("[data-action='answer']").addEventListener("click", () => this.showAnswer());
       this.root.querySelector("[data-action='start']").addEventListener("click", () => {
         this.ui.showToast("\u7ec8\u672b\u5730\u7cfb\u7edf\u5df2\u542f\u52a8", "success");
         this.root.querySelector("[data-board]").scrollIntoView({ block: "center", behavior: "smooth" });
@@ -853,6 +1751,45 @@
       });
       this.ui.updateLevel(this.currentLevel, this.levelManager.total, this.save.getCompletedCount(), this.save.getResetCount(this.currentLevel.id));
       this.ui.showToast("\u5173\u5361\u5df2\u91cd\u7f6e", "info");
+    }
+
+    showHint() {
+      if (!this.currentLevel?.answer) {
+        this.ui.showToast("\u5f53\u524d\u5173\u5361\u6682\u65e0\u63d0\u793a", "warning");
+        return;
+      }
+
+      this.board.showAnswerHint(this.currentLevel.answer);
+      this.ui.showToast("\u5df2\u6807\u51fa\u9700\u8981\u586b\u5145\u7684\u533a\u5757", "info");
+    }
+
+    showAnswer() {
+      const answer = this.currentLevel?.answer;
+      if (!answer?.placements?.length) {
+        this.ui.showToast("\u5f53\u524d\u5173\u5361\u6682\u65e0\u7b54\u6848", "warning");
+        return;
+      }
+
+      this.board.loadLevel(this.currentLevel);
+      this.pieces.forEach((piece) => {
+        const placement = answer.placements.find((item) => item.pieceId === piece.id);
+        if (!placement) {
+          piece.setInTray({ resetMatrix: true });
+          this.tray.appendChild(piece.element);
+          return;
+        }
+
+        piece.setMatrix(placement.matrix);
+        if (this.board.canPlace(piece, placement.origin, { ignoreId: piece.id })) {
+          this.board.placePiece(piece, placement.origin);
+          piece.setPlaced(placement.origin);
+        } else {
+          piece.setInTray();
+        }
+        this.tray.appendChild(piece.element);
+      });
+      this.board.clearAnswerHint();
+      this.ui.showToast("\u7b54\u6848\u5df2\u663e\u793a", "success");
     }
 
     selectPiece(piece) {
@@ -1073,7 +2010,13 @@
     isPointInTray(clientX, clientY) {
       if (!Number.isFinite(clientX) || !Number.isFinite(clientY)) return false;
       const rect = this.tray.getBoundingClientRect();
-      return clientX >= rect.left && clientX <= rect.right && clientY >= rect.top && clientY <= rect.bottom;
+      const dropPadding = 28;
+      return (
+        clientX >= rect.left - dropPadding &&
+        clientX <= rect.right + dropPadding &&
+        clientY >= rect.top - dropPadding &&
+        clientY <= rect.bottom + dropPadding
+      );
     }
 
     cancelDrag() {

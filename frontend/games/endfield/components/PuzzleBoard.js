@@ -57,11 +57,13 @@ export class PuzzleBoard {
     this.placedPieces = new Map();
     this.cellElements = [];
     this.previewCells = [];
+    this.hintCells = [];
   }
 
   loadLevel(level) {
     this.level = level;
     this.placedPieces.clear();
+    this.clearAnswerHint();
     this.fixedBlocks = normalizeFixedBlocks(level.fixedBlocks || level.litBlocks || level.fixedCells);
     this.targets = this.createTargets(level);
     this.render();
@@ -261,6 +263,23 @@ export class PuzzleBoard {
   clearPreview() {
     this.previewCells.forEach((cell) => cell.classList.remove("is-preview-valid", "is-preview-invalid"));
     this.previewCells = [];
+  }
+
+  showAnswerHint(answer) {
+    this.clearAnswerHint();
+    answer?.placements?.forEach((placement) => {
+      occupiedCells(placement.matrix, placement.origin).forEach(({ row, col }) => {
+        const cell = this.getCell(row, col);
+        if (!cell || cell.classList.contains("is-fixed")) return;
+        cell.classList.add("is-answer-hint");
+        this.hintCells.push(cell);
+      });
+    });
+  }
+
+  clearAnswerHint() {
+    this.hintCells.forEach((cell) => cell.classList.remove("is-answer-hint"));
+    this.hintCells = [];
   }
 
   getStats() {

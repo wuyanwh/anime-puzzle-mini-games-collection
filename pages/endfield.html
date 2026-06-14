@@ -67,6 +67,8 @@
                   <button class="endfield-button" type="button" data-action="previous">&#19978;&#19968;&#20851;</button>
                   <button class="endfield-button" type="button" data-action="next">&#19979;&#19968;&#20851;</button>
                   <button class="endfield-button" type="button" data-action="reset">&#37325;&#32622;</button>
+                  <button class="endfield-button" type="button" data-action="hint">&#25552;&#31034;</button>
+                  <button class="endfield-button" type="button" data-action="answer">&#26174;&#31034;&#31572;&#26696;</button>
                   <a class="endfield-button" href="index.html">&#36820;&#22238;&#20027;&#39029;</a>
                 </div>
                 <div class="endfield-stat-grid">
@@ -133,12 +135,7 @@
   <script>
     (function loadEndfieldGame() {
       var script = document.createElement("script");
-      if (window.location.protocol === "file:") {
-        script.src = "../frontend/games/endfield/index.bundle.js";
-      } else {
-        script.type = "module";
-        script.src = "../frontend/games/endfield/index.js";
-      }
+      script.src = "../frontend/games/endfield/index.bundle.js";
       document.currentScript.after(script);
     })();
   </script>

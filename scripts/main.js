@@ -29,7 +29,7 @@ const games = [
     name: "终末地",
     icon: "01",
     url: "endfield.html",
-    cover: "../assets/images/game1-cover.svg",
+    cover: "../assets/images/endfield-cover.png",
     pattern: "radial-gradient(circle at 25% 25%, rgba(34, 211, 238, 0.24), transparent 0.8rem)"
   },
   {
@@ -87,7 +87,6 @@ function createGameCard(game) {
   article.innerHTML = `
     <div class="game-card__cover" aria-hidden="true">
       <img src="${game.cover}" alt="" loading="lazy">
-      <span class="game-card__badge">${game.icon}</span>
     </div>
     <div class="game-card__body">
       <div>

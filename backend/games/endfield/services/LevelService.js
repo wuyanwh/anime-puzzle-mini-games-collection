@@ -1,8 +1,39 @@
-import level1 from "../levels/level1.js";
-import level2 from "../levels/level2.js";
-import level3 from "../levels/level3.js";
+import { readdir } from "node:fs/promises";
+import { dirname, resolve } from "node:path";
+import { fileURLToPath, pathToFileURL } from "node:url";
+import { getEndfieldAnswer } from "../answers/index.js";
 
-export const endfieldLevels = [level1, level2, level3];
+const here = dirname(fileURLToPath(import.meta.url));
+const levelsDir = resolve(here, "../levels");
+
+function getLevelNumber(fileName) {
+  const match = fileName.match(/\d+/);
+  return match ? Number(match[0]) : Number.POSITIVE_INFINITY;
+}
+
+function sortByLevelFile(left, right) {
+  return getLevelNumber(left) - getLevelNumber(right) || left.localeCompare(right);
+}
+
+async function loadLevelFiles() {
+  const files = (await readdir(levelsDir))
+    .filter((file) => file.endsWith(".js"))
+    .sort(sortByLevelFile);
+
+  const modules = await Promise.all(
+    files.map(async (file) => {
+      const moduleUrl = pathToFileURL(resolve(levelsDir, file)).href;
+      return import(moduleUrl);
+    })
+  );
+
+  return modules.map((module) => module.default).filter(Boolean);
+}
+
+export const endfieldLevels = (await loadLevelFiles()).map((level) => ({
+  ...level,
+  answer: getEndfieldAnswer(level.id)
+}));
 
 export const levelManifest = endfieldLevels.map((level) => ({
   id: level.id,

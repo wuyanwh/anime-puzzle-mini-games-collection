@@ -33,6 +33,8 @@ class EndfieldGame {
     this.root.querySelector("[data-action='reset']").addEventListener("click", () => this.resetLevel(true));
     this.root.querySelector("[data-action='next']").addEventListener("click", async () => this.loadLevel(await this.levelManager.next(), true));
     this.root.querySelector("[data-action='previous']").addEventListener("click", async () => this.loadLevel(await this.levelManager.previous(), true));
+    this.root.querySelector("[data-action='hint']").addEventListener("click", () => this.showHint());
+    this.root.querySelector("[data-action='answer']").addEventListener("click", () => this.showAnswer());
     this.root.querySelector("[data-action='start']").addEventListener("click", () => {
       this.ui.showToast("\u7ec8\u672b\u5730\u7cfb\u7edf\u5df2\u542f\u52a8", "success");
       this.root.querySelector("[data-board]").scrollIntoView({ block: "center", behavior: "smooth" });
@@ -106,6 +108,45 @@ class EndfieldGame {
     });
     this.ui.updateLevel(this.currentLevel, this.levelManager.total, this.save.getCompletedCount(), this.save.getResetCount(this.currentLevel.id));
     this.ui.showToast("\u5173\u5361\u5df2\u91cd\u7f6e", "info");
+  }
+
+  showHint() {
+    if (!this.currentLevel?.answer) {
+      this.ui.showToast("\u5f53\u524d\u5173\u5361\u6682\u65e0\u63d0\u793a", "warning");
+      return;
+    }
+
+    this.board.showAnswerHint(this.currentLevel.answer);
+    this.ui.showToast("\u5df2\u6807\u51fa\u9700\u8981\u586b\u5145\u7684\u533a\u5757", "info");
+  }
+
+  showAnswer() {
+    const answer = this.currentLevel?.answer;
+    if (!answer?.placements?.length) {
+      this.ui.showToast("\u5f53\u524d\u5173\u5361\u6682\u65e0\u7b54\u6848", "warning");
+      return;
+    }
+
+    this.board.loadLevel(this.currentLevel);
+    this.pieces.forEach((piece) => {
+      const placement = answer.placements.find((item) => item.pieceId === piece.id);
+      if (!placement) {
+        piece.setInTray({ resetMatrix: true });
+        this.tray.appendChild(piece.element);
+        return;
+      }
+
+      piece.setMatrix(placement.matrix);
+      if (this.board.canPlace(piece, placement.origin, { ignoreId: piece.id })) {
+        this.board.placePiece(piece, placement.origin);
+        piece.setPlaced(placement.origin);
+      } else {
+        piece.setInTray();
+      }
+      this.tray.appendChild(piece.element);
+    });
+    this.board.clearAnswerHint();
+    this.ui.showToast("\u7b54\u6848\u5df2\u663e\u793a", "success");
   }
 
   selectPiece(piece) {
@@ -326,7 +367,13 @@ class EndfieldGame {
   isPointInTray(clientX, clientY) {
     if (!Number.isFinite(clientX) || !Number.isFinite(clientY)) return false;
     const rect = this.tray.getBoundingClientRect();
-    return clientX >= rect.left && clientX <= rect.right && clientY >= rect.top && clientY <= rect.bottom;
+    const dropPadding = 28;
+    return (
+      clientX >= rect.left - dropPadding &&
+      clientX <= rect.right + dropPadding &&
+      clientY >= rect.top - dropPadding &&
+      clientY <= rect.bottom + dropPadding
+    );
   }
 
   cancelDrag() {

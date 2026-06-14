@@ -87,5 +87,10 @@ export class PuzzlePiece {
     this.element.style.top = "";
   }
 
+  setMatrix(matrix) {
+    this.matrix = cloneMatrix(matrix);
+    this.updateElement();
+  }
+
   destroy() {}
 }

@@ -1,6 +1,6 @@
 export default {
   id: 2,
-  name: "第二关",
+  name: "哇!还有异色!",
   size: 4,
   rows: {
     green: [2, 3, 1, 2],
