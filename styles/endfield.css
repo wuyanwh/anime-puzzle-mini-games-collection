@@ -695,6 +695,12 @@
   border-color: var(--line);
 }
 
+:root[data-theme="light"] .endfield-piece.is-dragging {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
 :root[data-theme="light"] .endfield-board__matrix {
   border-color: color-mix(in srgb, var(--accent) 38%, transparent);
   background:
@@ -712,6 +718,99 @@
 :root[data-theme="light"] .endfield-cell:hover {
   border-color: color-mix(in srgb, var(--accent) 46%, transparent);
   background: color-mix(in srgb, var(--accent) 16%, rgba(255, 255, 255, 0.8));
+}
+
+:root[data-theme="light"] .endfield-cell.is-obstacle {
+  border-color: rgba(71, 85, 105, 0.34);
+  background:
+    linear-gradient(135deg, rgba(100, 116, 139, 0.3), rgba(203, 213, 225, 0.62)),
+    repeating-linear-gradient(45deg, rgba(15, 23, 42, 0.18) 0 2px, transparent 2px 9px);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.42),
+    inset 0 0 18px rgba(71, 85, 105, 0.18),
+    0 8px 22px rgba(15, 23, 42, 0.1);
+}
+
+:root[data-theme="light"] .endfield-cell.is-preview-valid {
+  border-color: rgba(34, 197, 94, 0.86);
+  background:
+    linear-gradient(135deg, rgba(34, 197, 94, 0.28), rgba(132, 204, 22, 0.18)),
+    rgba(240, 253, 244, 0.92);
+  box-shadow:
+    inset 0 0 0 2px rgba(34, 197, 94, 0.24),
+    0 0 26px rgba(34, 197, 94, 0.3),
+    0 0 42px rgba(132, 204, 22, 0.18);
+}
+
+:root[data-theme="light"] .endfield-cell.is-preview-invalid {
+  border-color: rgba(244, 63, 94, 0.9);
+  background:
+    linear-gradient(135deg, rgba(244, 63, 94, 0.28), rgba(251, 113, 133, 0.18)),
+    rgba(255, 241, 242, 0.92);
+  box-shadow:
+    inset 0 0 0 2px rgba(244, 63, 94, 0.22),
+    0 0 26px rgba(244, 63, 94, 0.28),
+    0 0 42px rgba(251, 113, 133, 0.16);
+}
+
+:root[data-theme="light"] .endfield-cell.is-filled,
+:root[data-theme="light"] .piece-cell.is-on {
+  background: var(--piece-fill);
+  border-color: var(--piece-line);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.36),
+    0 0 16px color-mix(in srgb, var(--piece-glow) 82%, transparent),
+    0 8px 22px color-mix(in srgb, var(--piece-line) 18%, transparent);
+}
+
+:root[data-theme="light"] .endfield-cell.is-filled.is-preview-invalid {
+  border-color: rgba(244, 63, 94, 0.94);
+  background:
+    linear-gradient(135deg, rgba(244, 63, 94, 0.34), rgba(190, 18, 60, 0.24)),
+    rgba(255, 241, 242, 0.94);
+  box-shadow:
+    inset 0 0 0 2px rgba(244, 63, 94, 0.28),
+    0 0 28px rgba(244, 63, 94, 0.32),
+    0 0 44px rgba(251, 113, 133, 0.2);
+}
+
+:root[data-theme="light"] .endfield-cell.is-obstacle.is-preview-invalid {
+  border-color: rgba(244, 63, 94, 0.94);
+  background:
+    linear-gradient(135deg, rgba(244, 63, 94, 0.34), rgba(190, 18, 60, 0.24)),
+    repeating-linear-gradient(45deg, rgba(127, 29, 29, 0.22) 0 2px, transparent 2px 9px),
+    rgba(255, 241, 242, 0.94);
+  box-shadow:
+    inset 0 0 0 2px rgba(244, 63, 94, 0.28),
+    0 0 28px rgba(244, 63, 94, 0.32),
+    0 0 44px rgba(251, 113, 133, 0.2);
+}
+
+:root[data-theme="light"] .endfield-piece.is-dragging.is-invalid .piece-cell.is-on {
+  border-color: rgba(244, 63, 94, 0.95);
+  background: linear-gradient(135deg, #fecdd3, #fb7185 48%, #be123c);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.36),
+    0 0 18px rgba(244, 63, 94, 0.48),
+    0 10px 24px rgba(190, 18, 60, 0.24);
+}
+
+:root[data-theme="light"] .hint-bar {
+  border-color: color-mix(in srgb, var(--piece-line) 62%, rgba(15, 23, 42, 0.16));
+  background: color-mix(in srgb, var(--piece-line) 18%, rgba(255, 255, 255, 0.88));
+  box-shadow: inset 0 0 7px color-mix(in srgb, var(--piece-glow) 36%, transparent);
+  opacity: 0.7;
+}
+
+:root[data-theme="light"] .endfield-hint .hint-bar.is-lit,
+:root[data-theme="light"] .endfield-hint.is-met .hint-bar {
+  border-color: var(--piece-line);
+  background: var(--piece-fill);
+  box-shadow:
+    0 0 12px color-mix(in srgb, var(--piece-glow) 86%, transparent),
+    0 3px 10px color-mix(in srgb, var(--piece-line) 24%, transparent),
+    inset 0 1px 0 rgba(255, 255, 255, 0.36);
+  opacity: 1;
 }
 
 :root[data-theme="light"] .endfield-toast {

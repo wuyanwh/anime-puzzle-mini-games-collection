@@ -37,7 +37,7 @@ const games = [
     name: "鸣潮-加密分区",
     icon: "02",
     url: "game2.html",
-    cover: "../assets/images/game2-cover.svg",
+    cover: "../assets/images/wuthering-cover.png",
     pattern: "linear-gradient(45deg, rgba(248, 250, 252, 0.12) 25%, transparent 25% 50%, rgba(248, 250, 252, 0.12) 50% 75%, transparent 75%)"
   },
   {

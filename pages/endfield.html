@@ -19,7 +19,7 @@
     <aside class="sidebar" id="sidebar" aria-label="side navigation">
       <div class="sidebar__top">
         <a class="sidebar-brand" href="index.html" aria-label="Anime Puzzle Mini-Games Collection home">
-          <span class="brand-logo"><img src="../assets/logos/mini-games-logo.svg" alt="Anime Puzzle Mini-Games Collection"></span>
+          <span class="brand-logo brand-logo--collection"><img src="../assets/logos/anime-puzzle-logo.png" alt="Anime Puzzle Mini-Games Collection"></span>
           <span class="sidebar-brand__text">Anime Puzzle Mini-Games Collection</span>
         </a>
       </div>
@@ -41,7 +41,7 @@
       <header class="topbar topbar--game endfield-glassbar">
         <div class="topbar__title-group">
           <a class="topbar__brand" href="index.html" aria-label="back home">
-            <span class="brand-logo"><img src="../assets/logos/mini-games-logo.svg" alt="Anime Puzzle Mini-Games Collection"></span>
+            <span class="brand-logo brand-logo--collection"><img src="../assets/logos/anime-puzzle-logo.png" alt="Anime Puzzle Mini-Games Collection"></span>
           </a>
           <div>
             <nav class="breadcrumb"><a href="index.html">&#39318;&#39029;</a><span>/</span><span>终末地-维修电路</span></nav>
@@ -121,7 +121,14 @@
         <button class="modal__close" type="button" data-modal-close aria-label="close">x</button>
       </header>
       <div class="modal__body">
-        <p>&#25302;&#25341;&#24182;&#26059;&#36716;&#25340;&#22359;&#65292;&#20351;&#27599;&#19968;&#34892;&#21644;&#27599;&#19968;&#21015;&#30340;&#21344;&#29992;&#25968;&#37327;&#28385;&#36275;&#21457;&#20809;&#25351;&#31034;&#22120;&#12290;</p>
+        <p>拖拽并旋转维修模块，让棋盘每一行和每一列的信号数量满足目标指示。不同关卡会引入异色模块、固定格和障碍格，需要在有限空间内完成线路校准。</p>
+        <dl class="info-list">
+          <div><dt>游戏名称</dt><dd>终末地-维修电路</dd></div>
+          <div><dt>玩法说明</dt><dd>根据行列提示摆放拼块，所有目标同时匹配后即可通关。</dd></div>
+          <div><dt>操作方式</dt><dd>拖拽拼块到棋盘；右键或选中后按 R 旋转；可使用提示、显示答案、重置和上下关切换。</dd></div>
+          <div><dt>开发状态</dt><dd>已接入 14 个关卡，支持本地进度、计时、重置统计和答案提示。</dd></div>
+          <div><dt>更新记录</dt><dd>完成前后端关卡拆分，页面直接加载运行 bundle，无需构建即可游玩。</dd></div>
+        </dl>
       </div>
     </section>
     <section class="modal" id="settingsModal" role="dialog" aria-modal="true" aria-labelledby="settingsTitle" hidden></section>
