@@ -4,7 +4,7 @@
   const legacyLanguageKey = "mini-games-language";
 
   const defaults = {
-    theme: "light",
+    theme: "dark",
     colorScheme: "aurora",
     fontSize: "medium",
     sound: true,

@@ -1,6 +1,6 @@
 (function bootstrapSettings() {
   var defaults = {
-    theme: "light",
+    theme: "dark",
     colorScheme: "aurora",
     fontSize: "medium",
     animation: "on",
