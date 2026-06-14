@@ -1,4 +1,4 @@
-# Mini Games Collection
+# Anime Puzzle Mini-Games Collection
 
 一个使用原生 HTML、CSS 和 JavaScript 构建的小游戏合集。当前已将项目按前后端职责拆分：前端负责页面展示与交互，后端负责关卡数据与关卡管理服务。
 

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>&#32456;&#26411;&#22320; | Mini Games Collection</title>
+  <title>终末地-维修电路 | Anime Puzzle Mini-Games Collection</title>
   <script>(function(){try{var s=JSON.parse(localStorage.getItem("mini-games-settings-v1")||"{}");var theme=s.theme||localStorage.getItem("mini-games-theme")||"dark";document.documentElement.dataset.theme=theme;document.documentElement.dataset.colorScheme=s.colorScheme||"aurora";document.documentElement.dataset.fontSize=s.fontSize||"medium";document.documentElement.dataset.animation=s.animation===false?"off":"on";document.documentElement.dataset.sound=s.sound===false?"off":"on";document.documentElement.lang=(s.language||localStorage.getItem("mini-games-language"))==="en"?"en":"zh-CN";}catch(error){document.documentElement.dataset.theme="dark";document.documentElement.dataset.colorScheme="aurora";document.documentElement.dataset.fontSize="medium";document.documentElement.dataset.animation="on";document.documentElement.dataset.sound="on";}})();</script>
   <link rel="stylesheet" href="../styles/themes.css">
   <link rel="stylesheet" href="../styles/global.css">
@@ -18,21 +18,21 @@
   <div class="app-shell">
     <aside class="sidebar" id="sidebar" aria-label="side navigation">
       <div class="sidebar__top">
-        <a class="sidebar-brand" href="index.html" aria-label="Mini Games home">
-          <span class="brand-logo"><img src="../assets/logos/mini-games-logo.svg" alt="Mini Games"></span>
-          <span class="sidebar-brand__text">Mini Games</span>
+        <a class="sidebar-brand" href="index.html" aria-label="Anime Puzzle Mini-Games Collection home">
+          <span class="brand-logo"><img src="../assets/logos/mini-games-logo.svg" alt="Anime Puzzle Mini-Games Collection"></span>
+          <span class="sidebar-brand__text">Anime Puzzle Mini-Games Collection</span>
         </a>
       </div>
       <nav class="sidebar__nav">
-        <a class="nav-item" href="index.html"><span class="nav-item__icon">H</span><span class="nav-item__text">&#39318;&#39029;</span></a>
-        <a class="nav-item is-active" href="endfield.html"><span class="nav-item__icon">01</span><span class="nav-item__text">&#32456;&#26411;&#22320;</span></a>
-        <a class="nav-item" href="game2.html"><span class="nav-item__icon">02</span><span class="nav-item__text">game2</span></a>
+        <a class="nav-item" href="index.html"><span class="nav-item__icon">&#8962;</span><span class="nav-item__text">&#39318;&#39029;</span></a>
+        <a class="nav-item is-active" href="endfield.html"><span class="nav-item__icon nav-item__icon--game-logo"><img src="../assets/logos/endfield-sidebar-logo.png" alt=""></span><span class="nav-item__text">终末地-维修电路</span></a>
+        <a class="nav-item" href="game2.html"><span class="nav-item__icon">02</span><span class="nav-item__text">鸣潮-加密分区</span></a>
         <a class="nav-item" href="game3.html"><span class="nav-item__icon">03</span><span class="nav-item__text">game3</span></a>
         <a class="nav-item" href="game4.html"><span class="nav-item__icon">04</span><span class="nav-item__text">game4</span></a>
         <a class="nav-item" href="game5.html"><span class="nav-item__icon">05</span><span class="nav-item__text">game5</span></a>
       </nav>
       <nav class="sidebar__nav sidebar__nav--bottom">
-        <button class="nav-item" type="button" data-modal-target="#settingsModal"><span class="nav-item__icon">S</span><span class="nav-item__text">&#35774;&#32622;</span></button>
+        <button class="nav-item" type="button" data-modal-target="#settingsModal"><span class="nav-item__icon">&#9881;</span><span class="nav-item__text">&#35774;&#32622;</span></button>
         <button class="nav-item" type="button" data-modal-target="#aboutModal"><span class="nav-item__icon">i</span><span class="nav-item__text">&#20851;&#20110;</span></button>
       </nav>
     </aside>
@@ -41,18 +41,21 @@
       <header class="topbar topbar--game endfield-glassbar">
         <div class="topbar__title-group">
           <a class="topbar__brand" href="index.html" aria-label="back home">
-            <span class="brand-logo"><img src="../assets/logos/mini-games-logo.svg" alt="Mini Games"></span>
+            <span class="brand-logo"><img src="../assets/logos/mini-games-logo.svg" alt="Anime Puzzle Mini-Games Collection"></span>
           </a>
           <div>
-            <nav class="breadcrumb"><a href="index.html">&#39318;&#39029;</a><span>/</span><span>&#32456;&#26411;&#22320;</span></nav>
-            <h1>&#32456;&#26411;&#22320;</h1>
+            <nav class="breadcrumb"><a href="index.html">&#39318;&#39029;</a><span>/</span><span>终末地-维修电路</span></nav>
+            <h1>终末地-维修电路</h1>
           </div>
         </div>
         <div class="topbar__actions">
-          <a class="top-action" href="index.html"><span>H</span><span class="top-action__text">&#39318;&#39029;</span></a>
+          <a class="top-action" href="index.html"><span>&#8962;</span><span class="top-action__text">&#39318;&#39029;</span></a>
           <button class="top-action" type="button" data-modal-target="#gameInfoModal"><span>i</span><span class="top-action__text">&#28216;&#25103;&#20171;&#32461;</span></button>
         </div>
-        <button class="avatar" type="button" aria-label="user"><span>U</span></button>
+        <a class="github-link" href="https://github.com/wuyanwh/anime-puzzle-mini-games-collection" target="_blank" rel="noopener noreferrer" aria-label="Open GitHub project">
+          <img src="../assets/icons/github.svg" alt="">
+          <span>GitHub</span>
+        </a>
       </header>
 
       <main class="game-content">
@@ -114,7 +117,7 @@
   <div class="modal-layer" id="modalLayer" aria-hidden="true">
     <section class="modal" id="gameInfoModal" role="dialog" aria-modal="true" aria-labelledby="gameInfoTitle" hidden>
       <header class="modal__header">
-        <div><p class="section-label">Game Info</p><h2 id="gameInfoTitle">&#32456;&#26411;&#22320;</h2></div>
+        <div><p class="section-label">Game Info</p><h2 id="gameInfoTitle">终末地-维修电路</h2></div>
         <button class="modal__close" type="button" data-modal-close aria-label="close">x</button>
       </header>
       <div class="modal__body">
@@ -123,8 +126,8 @@
     </section>
     <section class="modal" id="settingsModal" role="dialog" aria-modal="true" aria-labelledby="settingsTitle" hidden></section>
     <section class="modal" id="aboutModal" role="dialog" aria-modal="true" hidden>
-      <header class="modal__header"><div><p class="section-label">About</p><h2>Mini Games Collection</h2></div><button class="modal__close" type="button" data-modal-close aria-label="close">x</button></header>
-      <div class="modal__body"><p>Mini Games Collection</p></div>
+      <header class="modal__header"><div><p class="section-label">About</p><h2>Anime Puzzle Mini-Games Collection</h2></div><button class="modal__close" type="button" data-modal-close aria-label="close">x</button></header>
+      <div class="modal__body"><p>Anime Puzzle Mini-Games Collection</p></div>
     </section>
   </div>
 

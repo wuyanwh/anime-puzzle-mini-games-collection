@@ -3,22 +3,22 @@ const gameCopy = {
     start: "开始游戏",
     empty: "没有找到匹配的小游戏。",
     descriptions: {
-      endfield: "科技风拼块计数解谜：拖拽并旋转拼块，让每一行与每一列的占用数量全部吻合目标。",
-      game2: "预留给益智类玩法，可快速接入棋盘、卡片或拖拽交互。",
-      game3: "适合作为动作或躲避类小游戏的页面入口与展示卡片。",
-      game4: "为策略、收集或养成类玩法准备的统一占位页面。",
-      game5: "未来可扩展排行榜、成就和多人模式的小游戏入口。"
+      endfield: "故障Delta机器人会梦到艾露管理员吗",
+      game2: "",
+      game3: "",
+      game4: "",
+      game5: ""
     }
   },
   en: {
     start: "Start Game",
     empty: "No matching games found.",
     descriptions: {
-      endfield: "A futuristic block-counting logic puzzle: drag and rotate pieces until every row and column matches its target.",
-      game2: "Reserved for puzzle mechanics, boards, cards, or drag interactions.",
-      game3: "A clean entry for action, dodge, or movement-based mini games.",
-      game4: "Prepared for strategy, collection, or progression-based gameplay.",
-      game5: "A future-ready slot for rankings, achievements, and multiplayer modes."
+      endfield: "Will a faulty Delta robot dream of Administrator Ayla?",
+      game2: "",
+      game3: "",
+      game4: "",
+      game5: ""
     }
   }
 };
@@ -26,7 +26,7 @@ const gameCopy = {
 const games = [
   {
     id: "endfield",
-    name: "终末地",
+    name: "终末地-维修电路",
     icon: "01",
     url: "endfield.html",
     cover: "../assets/images/endfield-cover.png",
@@ -34,7 +34,7 @@ const games = [
   },
   {
     id: "game2",
-    name: "game2",
+    name: "鸣潮-加密分区",
     icon: "02",
     url: "game2.html",
     cover: "../assets/images/game2-cover.svg",
